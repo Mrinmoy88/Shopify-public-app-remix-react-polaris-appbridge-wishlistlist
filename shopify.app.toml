@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "6bfbc071651980038b4cbab7e4c7e40c"
+name = "wishlist-inspire"
+handle = "wishlist-inspire-240"
+application_url = "https://sf-membrane-locator-triple.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "ats-test-development.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sf-membrane-locator-triple.trycloudflare.com/auth/callback",
+  "https://sf-membrane-locator-triple.trycloudflare.com/auth/shopify/callback",
+  "https://sf-membrane-locator-triple.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
